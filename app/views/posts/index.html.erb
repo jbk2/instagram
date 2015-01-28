@@ -1,8 +1,15 @@
 <% if @posts.any? %>
-  <% @posts.each do |restaurant| %>
-    <%= restaurant.name %>
-    <%= restaurant.description %>
-  <% end %>
+  <ul><% @posts.each do |post| %>
+    <li>
+      <%= post.name %>
+      <%= link_to "Edit #{post.name}", edit_post_path(post) %>
+      <%= link_to "Delete #{post.name}", post_path(post),
+        method: :delete, data: {confirm: 'Are you sure?' } %>
+    </li>
+    <li><%= post.description %></li>
+  <% end %></ul>
+
 <% else %>
   <h1>No posts yet.</h1>
+
 <% end %>

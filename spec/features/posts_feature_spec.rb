@@ -18,6 +18,31 @@ describe 'creating a post' do
 
     expect(current_path).to eq '/posts'
     expect(page).to have_content 'dog pic'
-
   end
+
+  describe 'editing a post' do
+    before { Post.create(name: 'test pic', description: 'test image') }
+
+    it 'saves the change to the post' do
+      visit '/posts'
+      click_link 'Edit test pic'
+      fill_in 'Name', with: 'test pic1'
+      click_button 'Update Post'
+
+      expect(current_path).to eq '/posts'
+      expect(page).to have_content 'test pic1'
+    end
+  end
+
+  describe 'deleting a post' do
+    before { Post.create(name: 'test pic', description: 'test image') }
+
+    it 'deletes a post' do
+      visit '/posts'
+      click_link 'Delete test pic'
+
+      expect(page).not_to have_content 'test pic'
+    end
+  end
+
 end
