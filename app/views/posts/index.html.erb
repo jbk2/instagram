@@ -1,0 +1,8 @@
+<% if @posts.any? %>
+  <% @posts.each do |restaurant| %>
+    <%= restaurant.name %>
+    <%= restaurant.description %>
+  <% end %>
+<% else %>
+  <h1>No posts yet.</h1>
+<% end %>
