@@ -1,4 +1,4 @@
-source 'https://rubygems.org'
+   source 'https://rubygems.org'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -26,7 +26,8 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
 gem 'spring',        group: :development
 
-gem "paperclip", github: 'thoughtbot/paperclip'
+gem 'paperclip', github: 'thoughtbot/paperclip'
+gem 'aws-sdk'
 
 group :test, :development do
   gem 'rspec-rails'
