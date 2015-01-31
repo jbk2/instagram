@@ -9,7 +9,7 @@ def new
 end
 
 def create
-  @post = Post.new(params[:post].permit(:name, :description))
+  @post = Post.new(params[:post].permit(:name, :description, :image))
 
   if @post.save
     redirect_to '/posts'
@@ -25,8 +25,11 @@ end
 def update
   @post = Post.find(params[:id])
 
-  @post.update(params[:post].permit(:name, :description))
+  if @post.update(params[:post].permit(:name, :description))
     redirect_to '/posts'
+  else
+    render 'new'
+  end
 end
 
 def destroy
