@@ -2,6 +2,7 @@ class Post < ActiveRecord::Base
 
   validates :name, presence: true, length: { minimum: 3, message: 'must have min 3 chars' }
   # validates :image, :attachment_presence => true
+  belongs_to :user
   has_attached_file :image,
     :styles => { :thumb => '200x200>' },
     storage: :s3,
