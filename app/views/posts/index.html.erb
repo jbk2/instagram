@@ -7,10 +7,14 @@
       <%= post.name %>
 
     <li><%= post.description %></li>
-    <li>  <%= link_to "Edit #{post.name}", edit_post_path(post) %>
-      <%= link_to "Delete #{post.name}", post_path(post),
+
+    <% if post.user == current_user %>
+
+      <li>  <%= link_to "Edit #{post.name}", edit_post_path(post) %>
+            <%= link_to "Delete #{post.name}", post_path(post),
         method: :delete, data: {confirm: 'Are you sure?' } %>
-    </li>
+      </li>
+    <% end %>
   <% end %></ul>
 
 <% else %>
