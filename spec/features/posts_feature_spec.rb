@@ -130,7 +130,7 @@ context 'when not logged in' do
       visit '/posts'
       click_link 'New post'
 
-      expect(page).to have_content 'Login'
+      expect(page).to have_content 'Log in'
     end
   end
 end

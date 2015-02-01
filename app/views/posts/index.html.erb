@@ -1,24 +1,48 @@
-<% if @posts.any? %>
-  <ul><% @posts.each do |post| %>
+<!-- Main jumbotron for a primary marketing message or call to action -->
+<div class="jumbotron">
+  <div class="container">
+    <h1>Hello Instagrammers</h1>
+    <p>This is an Instagram clone site built by James B Kemp as a part of his Makers Academy Ruby stack immersive web development course. Within this site we are using many technologies such as; Ruby, Ruby on Rails, Javascript, JQuery, Ruby gems(ImageMagick, Paperclip, AWS-SDK, devise, bootstrap), Rspec, Capybara, HTML5, CSS3, Amazon S3. 
+    </p>
 
-        <% if post.image.present? %>
-          <%= image_tag post.image.url(:thumb), class: 'uploaded-pic' %>
-        <% end %>
-      <%= post.name %>
-
-    <li><%= post.description %></li>
-
-    <% if post.user == current_user %>
-
-      <li>  <%= link_to "Edit #{post.name}", edit_post_path(post) %>
-            <%= link_to "Delete #{post.name}", post_path(post),
-        method: :delete, data: {confirm: 'Are you sure?' } %>
-      </li>
+    <% if !user_signed_in? %>
+      <p><%= link_to('Sign up', new_user_registration_path , class: "btn btn-primary btn-lg")%></p>
     <% end %>
-  Posted by: <%= post.user.email %>
-  <% end %></ul>
+  </div>
+</div>
 
-<% else %>
-  <h1>No posts yet.</h1>
-<% end %>
-  <%= link_to 'New post', new_post_path %>
+<div class='container'>
+  <% if @posts.any? %>
+    <div class='row'>
+    <% @posts.each do |post| %>
+      <div class='col-md-4'>
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title"><%= post.name %></h3>
+          </div>
+          <div class="panel-body">
+            <% if post.image.present? %>
+              <%= image_tag post.image.url(:thumb), class: 'uploaded-pic' %>
+            <% end %>
+            <div class='post-buttons'>
+              <% if post.user == current_user %>
+                <%= link_to "Edit #{post.name}", edit_post_path(post),
+                    class: 'btn btn-xs btn-warning' %>
+                <%= link_to "Delete #{post.name}", post_path(post),
+                    method: :delete, data: {confirm: 'Are you sure?' },
+                    class: 'btn btn-xs btn-danger' %>
+              <% end %>
+            </div>
+
+            <h5>Description: </h5><%= post.description %>
+            <h5>Posted by: </h5><%= post.user.email %>
+
+          </div>
+        </div>
+      </div>
+    <% end %>
+    </div>
+  <% else %>
+    <h3>No posts yet.</h1>
+  <% end %>
+</div>
