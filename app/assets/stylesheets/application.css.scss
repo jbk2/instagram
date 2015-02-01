@@ -56,3 +56,22 @@
 .post-buttons { 
   margin-top: 7px;
 }
+
+.uploaded-pic {
+  border-radius: 4px;
+  // height: 250px;
+  // width: 250px;
+}
+
+.autoModal.modal .modal-body {
+    max-height: 100%;
+}
+
+.modal-body {
+  width: 'auto';
+  height: 'auto';
+}
+
+// $('#modal').on('show', function () {
+//       $('.modal-body',this).css({width:'auto',height:'auto', 'max-height':'100%'});
+// }); jQuery to solve auto fitting content into modal.

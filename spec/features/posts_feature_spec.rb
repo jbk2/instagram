@@ -1,5 +1,4 @@
-require 'rails_helper' # or shoudl this be 'spec_helper'
-
+require 'rails_helper'
 describe 'posts index page' do
   context 'no posts have been added yet' do
     it "should display 'No posts yet.' message" do

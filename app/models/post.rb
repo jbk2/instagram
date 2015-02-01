@@ -4,7 +4,7 @@ class Post < ActiveRecord::Base
   # validates :image, :attachment_presence => true
   belongs_to :user
   has_attached_file :image,
-    :styles => { :thumb => '300x300>' },
+    :styles => { :thumb => '250x250>' },
     storage: :s3,
     s3_credentials: {
       bucket: 'instagram-clone-jbk',
