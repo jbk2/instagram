@@ -31,10 +31,12 @@ gem 'aws-sdk'
 gem 'devise'
 gem 'bootstrap-sass'
 
+
 group :test, :development do
   gem 'rspec-rails'
   gem 'capybara'
   gem 'rspec-collection_matchers'
+  gem "factory_girl_rails", "~> 4.0"
 end
 
 # Use ActiveModel has_secure_password

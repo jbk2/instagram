@@ -47,6 +47,10 @@
   // }
 }
 
+.nav{
+    text-align: center;
+}
+
 // .post-btn {
 //   width: 20%;
 // }
@@ -67,11 +71,12 @@
     max-height: 100%;
 }
 
-.modal-body {
+.modal {
+  max-height: 100%;
+  // width:500px;
   width: 'auto';
   height: 'auto';
+  overflow-y: auto;
+  overflow-x: auto; //nothing working to auto size body content
 }
 
-// $('#modal').on('show', function () {
-//       $('.modal-body',this).css({width:'auto',height:'auto', 'max-height':'100%'});
-// }); jQuery to solve auto fitting content into modal.

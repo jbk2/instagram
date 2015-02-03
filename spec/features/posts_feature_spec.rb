@@ -10,10 +10,7 @@ end
 
 context 'when logged in' do
   before do
-    user = User.create(email: 'james@bibble.com',
-      password: '12345678',
-      password_confirmation: '12345678',
-      id: '1')
+    user = create(:user)
     login_as user
   end
 
@@ -57,7 +54,7 @@ context 'when logged in' do
   end
 
   describe 'editing a post' do
-  before { Post.create(name: 'test pic', description: 'test image', user_id: '1') }
+  before { create(:post) }
     context 'with valid data' do
       it 'saves the change to the post' do
         visit '/posts'
@@ -70,7 +67,7 @@ context 'when logged in' do
       end
     end
 
-    context ' with invalid date' do
+    context ' with invalid data' do
       it 'does not save the change to the post' do
         visit '/posts'
         click_link 'Edit test pic'
@@ -84,7 +81,7 @@ context 'when logged in' do
   end
 
   describe 'deleting my own post' do
-    before { Post.create(name: 'test pic', description: 'test image', user_id: '1') }
+    before { create(:post) }
     it 'deletes my post' do
       visit '/posts'
       click_link 'Delete test pic'
@@ -97,30 +94,26 @@ end
 
 describe 'deleting another users post' do
   before do
-    user1 = User.create(email: 'james@bibble.com',
-      password: '12345678',
-      password_confirmation: '12345678')
-      Post.create(name: 'test pic1', description: 'test image1', user: user1)
+    user1 = create(:user)
+    user1_post = create(:post)
+      # Post.create(name: 'test pic1', description: 'test image1', user: user1)
 
-    user2 = User.create(email: 'james2@bibble.com',
-      password: '12345678',
-      password_confirmation: '12345678')
-      Post.create(name: 'test pic2', description: 'test image2', user: user2)
+    user2 = create(:user, email: 'james2@bibble.com', id: '2')
+    user2_post = create(:post, name: 'test pic2', user_id: '2')
     login_as user1
   end
   
+  it 'does not allow editing of another users post' do
+    visit 'posts'
+
+    expect(page).not_to have_content 'Edit test pic2'
+  end
+
   it 'does not show delete links for another users post' do
     visit 'posts'
 
     expect(page).not_to have_content 'Delete test pic2'
   end
-  # it 'does not allow deletion of another users post' do
-  #   visit 'posts'
-  #   click_link 'Delete test pic2'
-
-  #   expect(page).to have_content 'test pic2'
-  #   expect(page).to have_content 'Not your post!'
-  # end
 end
 
 context 'when not logged in' do

@@ -21,29 +21,33 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="/posts">Instagram JBK</a>
+          <a class="navbar-brand" href="/posts">Instagram JBK Clone</a>
         </div>
-        <div id="navbar" class="navbar-collapse collapse">
-        <%= link_to 'New post', new_post_path, class: 'btn btn-primary navbar-btn navbar-left' %>
-        <% if user_signed_in? %>
-          <%= link_to('Logout', destroy_user_session_path, :method => :delete,
-            class: 'btn btn-primary navbar-btn navbar-right') %>
-          <%= link_to('Edit registration', edit_user_registration_path,
-            class: 'btn btn-primary navbar-btn navbar-right') %>
-        <% else %>
-          <%= form_for(User.new, as: :user, url: session_path(:user),
-            html: { class: 'navbar-form navbar-right' }) do |f| %>
-            <div class="form-group">
-              <%= f.email_field :email, placeholder: 'Email',
-                class: 'form-control' %>
-            </div>
-            <div class="form-group">
-              <%= f.password_field :password, placeholder: 'Password',
-                class: 'form-control' %>
-            </div>
-            <%= f.button "Sign in", class: 'btn btn-success' %>  
-          <% end %>
-        <% end %>
+        <div id="navbar" class="navbar-collapse collapse text-center">
+          <ul>
+              <%= link_to 'New post', new_post_path, class: 'btn btn-primary navbar-btn text-center' %>
+
+            <% if user_signed_in? %>
+              <%= link_to('Logout', destroy_user_session_path, :method => :delete,
+                class: 'btn btn-primary navbar-btn navbar-right') %>
+              <%= link_to('Edit registration', edit_user_registration_path,
+                class: 'btn btn-primary navbar-btn navbar-right') %>
+            
+            <% else %>
+              <%= form_for(User.new, as: :user, url: session_path(:user),
+                html: { class: 'navbar-form' }) do |f| %>
+                <div class="form-group">
+                  <li><%= f.email_field :email, placeholder: 'Email',
+                    class: 'form-control' %></li>
+                </div>
+                <div class="form-group">
+                  <li><%= f.password_field :password, placeholder: 'Password',
+                    class: 'form-control' %></li>
+                </div>
+              <%= f.button "Sign in", class: 'btn btn-success' %>
+              <% end %>
+            <% end %>
+          </ul>
         </div>
       </div>
     </nav>        
@@ -53,5 +57,5 @@
         <p>&copy; Bibble 2015</p>
       </footer>
     </div>
-    </body>
-  </html>
+  </body>
+</html>

@@ -14,3 +14,7 @@
 //= require jquery_ujs
 //= require_tree .
 //= require bootstrap
+
+$('#modal').on('show', function () {
+      $('.modal-body',this).css({width:'auto',height:'auto', 'max-height':'100%'});
+});

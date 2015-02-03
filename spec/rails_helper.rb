@@ -5,6 +5,7 @@ require File.expand_path("../../config/environment", __FILE__)
 require 'rspec/rails'
 require 'capybara/rails'
 require 'aws'
+require 'factory_girl'
 AWS.stub!
 AWS.config(:access_key_id => "TESTKEY", :secret_access_key => "TESTSECRET")
 
@@ -56,4 +57,16 @@ RSpec.configure do |config|
   # The different available types are documented in the features, such as in
   # https://relishapp.com/rspec/rspec-rails/docs
   config.infer_spec_type_from_file_location!
+
+  config.include FactoryGirl::Syntax::Methods
+
+  # config.before(:suite) do
+  #   begin
+  #     DatabaseCleaner.start
+  #     FactoryGirl.lint
+  #   ensure
+  #     DatabaseCleaner.clean
+  #   end
+  # end  === Required database cleaner at top of file to work!
+
 end
