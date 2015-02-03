@@ -46,13 +46,13 @@ describe Post do
 
     describe 'multiple comma-separated tags' do
       it 'adds each tag to the post' do
-        post.tag_names = 'yolo,swag'
+        post.tag_names = 'yolo, swag'
 
         expect(post.tags.count).to eq 2
       end
 
       it "splits the tags even if there's no space" do
-        post.tag_names = 'yolo,swag'
+        post.tag_names = 'yolo, swag'
 
         expect(post.tags.count).to eq 2
       end
@@ -62,6 +62,25 @@ describe Post do
         last_tag = post.tags.last
 
         expect(last_tag.name).to eq '#swag'
+      end
+    end
+
+    describe 'reusing tags' do
+      let!(:tag) { Tag.create(name: '#yolo') }
+
+      it 'reuses tags if they already exist' do
+        post.tag_names = 'yolo'
+        
+        expect(Tag.count).to eq 1
+        expect(tag.posts).to include post
+      end
+    end
+
+    describe 'multiple duplicate tags' do
+      it 'usues only unique tags' do
+        post.tag_names = 'yolo, swag, yolo'
+
+        expect(post.tags.count).to eq 2
       end
     end
   end
