@@ -10,7 +10,7 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Post.new(params[:post].permit(:name, :description, :image))
+    @post = Post.new(params[:post].permit(:name, :description, :image, :tag_names))
     @post.user = current_user
     
     if @post.save
