@@ -10,9 +10,7 @@
         <%= image_tag post.image.url(:thumb), class: 'uploaded-pic' %>
       <% end %>
 
-      <br><% post.tags.each do |tag| %>
-        <%= link_to tag.name, tag_path(tag) %>
-      <% end %>
+      <br><%= render post.tags %>
 
       <div class='post-buttons'>
         
