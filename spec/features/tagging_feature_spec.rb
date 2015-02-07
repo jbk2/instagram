@@ -36,7 +36,7 @@ describe 'tagging posts' do
 
       click_link '#yolo'
 
-      expect(page).to have_css 'h2', text: 'Posts tagged with #yolo'
+      expect(page).to have_css 'h4', text: 'Posts tagged with #yolo'
       expect(page).to have_content 'Pic1'
       expect(page).not_to have_content 'Pic2'
     end
