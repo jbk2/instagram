@@ -1,0 +1,5 @@
+<h2> Posts tagged with <%= @tag.name %></h2>
+
+<div class='container'>
+  <%= render @tag.posts %> <!--don't need to name the partial, it auto looks-->
+</div> <!-- for a partial of the name of the model -->

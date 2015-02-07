@@ -1,3 +1,30 @@
 // Place all the styles related to the posts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.post-buttons { 
+  margin-top: 7px;
+}
+
+.autoModal.modal .modal-body {
+    max-height: 100%;
+}
+
+.modal {
+  max-height: 100%;
+  // width:500px;
+  width: 'auto';
+  height: 'auto';
+  overflow-y: auto;
+  overflow-x: auto; //nothing working to auto size body content
+}
+
+.bootstrap-tagsinput {
+  min-width: 150px;
+}
+
+.uploaded-pic {
+  border-radius: 4px;
+  // height: 250px;
+  // width: 250px;
+}

@@ -21,7 +21,7 @@
   <%= f.file_field :image %>
 
   <%= f.label :tag_names, 'Tags' %>
-  <%= f.text_field :tag_names %>
+  <%= f.text_field :tag_names, data: { role: "tagsinput" } %>
 
   <%= f.submit 'Post it' %>
 <% end %>

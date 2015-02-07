@@ -52,7 +52,7 @@ describe Post do
       end
 
       it "splits the tags even if there's no space" do
-        post.tag_names = 'yolo, swag'
+        post.tag_names = 'yolo,swag'
 
         expect(post.tags.count).to eq 2
       end

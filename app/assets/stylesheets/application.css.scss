@@ -12,6 +12,7 @@
  *
  *= require_tree .
  *= require_self
+ *= require bootstrap-tagsinput
  */
 
 @import 'bootstrap';
@@ -56,27 +57,4 @@
 // }
 
 // .body { padding-top: -35px; }
-
-.post-buttons { 
-  margin-top: 7px;
-}
-
-.uploaded-pic {
-  border-radius: 4px;
-  // height: 250px;
-  // width: 250px;
-}
-
-.autoModal.modal .modal-body {
-    max-height: 100%;
-}
-
-.modal {
-  max-height: 100%;
-  // width:500px;
-  width: 'auto';
-  height: 'auto';
-  overflow-y: auto;
-  overflow-x: auto; //nothing working to auto size body content
-}
 

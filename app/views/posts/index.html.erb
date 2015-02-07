@@ -14,51 +14,7 @@
 <div class='container'>
   <% if @posts.any? %>
     <div class='row'>
-    <% @posts.each do |post| %>
-      <div class='col-md-4'>
-        <div class="panel panel-default">
-          <div class="panel-heading">
-            <h3 class="panel-title"><%= post.name %></h3>
-          </div>
-          <div class="panel-body">
-            <% if post.image.present? %>
-              <%= image_tag post.image.url(:thumb), class: 'uploaded-pic' %>
-            <% end %>
-            <div class='post-buttons'>
-              <%= link_to("Show more", "#" , class: 'btn btn-xs btn-info',
-                data: { toggle: 'modal', target: ".image-modal-#{post.id}"}) %>
-              <% if post.user == current_user %>
-                <%= link_to "Edit #{post.name}", edit_post_path(post),
-                    class: 'btn btn-xs btn-warning' %>
-                <%= link_to "Delete #{post.name}", post_path(post),
-                    method: :delete, data: {confirm: 'Are you sure?' },
-                    class: 'btn btn-xs btn-danger' %>
-              <% end %>
-            </div>
-
-            <h5>Description: </h5><%= post.description %>
-            <h5>Posted by: </h5><%= post.user.email %>
-
-          </div>
-        </div>
-      </div>
-    
-      <div class="modal fade image-modal-<%= post.id %>">
-        <div class="modal-dialog modal-lg">
-          <div class="modal-content">
-            <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span></button>
-              <h4 class="modal-title"><%= post.name %></h4>
-            </div>
-            <div class='model-body'>
-            <%= image_tag post.image.url %>
-            </div>
-          </div>
-        </div>
-      </div>
-
-    <% end %>
+      <%= render @posts %>
     </div>
   <% else %>
     <h3>No posts yet.</h1>
