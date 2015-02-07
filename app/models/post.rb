@@ -15,9 +15,9 @@ class Post < ActiveRecord::Base
 
   validates_attachment_content_type :image, :content_type => /\Aimage\/.*\Z/
 
-  def to_param
-    name
-  end
+  # def to_param
+  #   name
+  # end
 
   def tag_names
     ''
