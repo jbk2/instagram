@@ -7,7 +7,7 @@
     <div class="panel-body">
 
       <% if post.image.present? %>
-        <%= link_to image_tag post.image.url(:thumb), post_path(params[:id]), class: 'uploaded-pic' %>
+        <%= link_to image_tag(post.image.url(:thumb), class: 'uploaded-pic'), post_path(post) %>
       <% end %>
 
       <br><%= render post.tags %>
