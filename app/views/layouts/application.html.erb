@@ -1,61 +1,68 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<title>InstagramJBK</title>
+  <title>InstagramJBK</title>
+  
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
-</head>
-<body>
 
+</head>
+
+<body>
   <p class="notice"><%= notice %></p>
   <p class="alert"><%= alert %></p>
 
-  <body>
-    <nav class="navbar navbar-inverse navbar-fixed-top">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="/posts">Instagram JBK Clone</a>
-        </div>
-        <div id="navbar" class="navbar-collapse collapse text-center">
-          <ul>
-              <%= link_to 'New post', new_post_path, class: 'btn btn-primary navbar-btn text-center' %>
-
-            <% if user_signed_in? %>
-              <%= link_to('Logout', destroy_user_session_path, :method => :delete,
-                class: 'btn btn-primary navbar-btn navbar-right') %>
-              <%= link_to('Edit registration', edit_user_registration_path,
-                class: 'btn btn-primary navbar-btn navbar-right') %>
-            
-            <% else %>
-              <%= form_for(User.new, as: :user, url: session_path(:user),
-                html: { class: 'navbar-form' }) do |f| %>
-                <div class="form-group">
-                  <li><%= f.email_field :email, placeholder: 'Email',
-                    class: 'form-control' %></li>
-                </div>
-                <div class="form-group">
-                  <li><%= f.password_field :password, placeholder: 'Password',
-                    class: 'form-control' %></li>
-                </div>
-              <%= f.button "Sign in", class: 'btn btn-success' %>
-              <% end %>
-            <% end %>
-          </ul>
-        </div>
-      </div>
-    </nav>        
-    <%= yield %>
+  <nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container">
-      <footer>
-        <p>&copy; Bibble 2015</p>
-      </footer>
+      <div class="navbar-header">
+        
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+          aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="/posts">Instagram JBK Clone</a>
+      </div>
+
+      <div id="navbar" class="navbar-collapse collapse text-center">
+        <!-- <ul> -->
+          <%= link_to 'New post', new_post_path, class: 'btn btn-primary navbar-btn text-center' %>
+
+          <% if user_signed_in? %>
+            <%= link_to('Logout', destroy_user_session_path, :method => :delete,
+              class: 'btn btn-primary navbar-btn navbar-right') %>
+            <%= link_to('Edit registration', edit_user_registration_path,
+              class: 'btn btn-primary navbar-btn navbar-right') %>
+          
+          <% else %>
+            <%= form_for(User.new, as: :user, url: session_path(:user),
+              html: { class: 'navbar-form navbar-right' }) do |f| %>
+            <!-- <div class="form-group"> -->
+              <%= f.email_field :email, placeholder: 'Email',
+                class: 'form-control' %>
+              <%= f.password_field :password, placeholder: 'Password',
+                class: 'form-control' %>
+              <%= f.button "Sign in", class: 'btn btn-success' %>
+            <!-- </div> -->
+            <% end %>
+          <% end %>
+
+        <!-- </ul> -->
+      </div>
     </div>
-  </body>
+  </nav>     
+
+
+  <%= yield %>
+  <div class="container">
+    <footer>
+      <p>&copy; Bibble 2015</p>
+    </footer>
+  </div>
+</body>
+
 </html>
