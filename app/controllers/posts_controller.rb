@@ -5,6 +5,10 @@ class PostsController < ApplicationController
     @posts = Post.all
   end
 
+  def show
+    @post = Post.find_by_name(params[:id])
+  end
+
   def new
     @post = Post.new
   end
@@ -21,11 +25,11 @@ class PostsController < ApplicationController
   end
 
   def edit
-    @post = Post.find(params[:id])
+    @post = Post.find_by_name(params[:id])
   end
 
   def update
-    @post = Post.find(params[:id])
+    @post = Post.find_by_name(params[:id])
 
     if @post.update(params[:post].permit(:name, :description))
       redirect_to '/posts'
@@ -35,7 +39,7 @@ class PostsController < ApplicationController
   end
 
   def destroy
-    @post = current_user.posts.find(params[:id])
+    @post = current_user.posts.find_by_name(params[:id])
 
     @post.destroy
       flash[:notice] = 'Deleted successfully'
