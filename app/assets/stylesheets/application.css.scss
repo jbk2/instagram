@@ -19,7 +19,9 @@
 
 .jumbotron {
   background: image-url('photo_collage.jpg');
-  margin-top: -15px; // sometimes on load this style does not take effect?!?
+  // margin: 0px;
+  // position: relative;
+  margin-top: -31px; // sometimes on load this style does not take effect?!?
   // padding: 0.5em 0.6em;
   // height: 100%;
   // top: 80px;
@@ -28,16 +30,17 @@
 
   .container {
     background: rgba(255, 255, 255, 0.85);
-    padding: 30px 50px;
-    border-radius: 15px;
+    padding: 20px 20px;
+    border-radius: 5px;
   }
 }
 
 .navbar {
-  min-height:12px;
-  height: 50px;
+  // min-height:12px;
+  // height: 50px;
   // background-color: #0B1C22;
   // margin-bottom: 0;
+  margin: 0px;
   
   .btn {
     margin-left: 5px;
@@ -48,9 +51,9 @@
   // }
 }
 
-.nav{
-    text-align: center;
-}
+// .nav{
+//     // text-align: center;
+// }
 
 // .post-btn {
 //   width: 20%;
