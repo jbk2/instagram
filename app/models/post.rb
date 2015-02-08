@@ -5,7 +5,7 @@ class Post < ActiveRecord::Base
   belongs_to :user
   has_and_belongs_to_many :tags
   has_attached_file :image,
-    :styles => { :thumb => '250x250>' },
+    :styles => { :thumb => '250x250>', :modal => '900x900' },
     storage: :s3,
     s3_credentials: {
       bucket: 'instagram-clone-jbk',
