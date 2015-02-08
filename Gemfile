@@ -27,10 +27,10 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'spring',        group: :development
 
 gem 'paperclip', github: 'thoughtbot/paperclip'
-gem 'aws-sdk'
+gem 'aws-sdk', '< 2.0'
 gem 'devise'
 gem 'bootstrap-sass'
-gem 'heroku_secrets', github: 'alexpeattie/heroku_secrets'
+# gem 'heroku_secrets', github: 'alexpeattie/heroku_secrets'
 
 
 group :test, :development do
