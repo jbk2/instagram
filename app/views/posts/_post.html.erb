@@ -1,33 +1,35 @@
 <div class='col-md-4'>
-  <div class="panel panel-default">
-    <div class="panel-heading">
-      <h3 class="panel-title"><%= post.name %></h3>
-    </div>
+  <div class id='masonry-grid'>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title"><%= post.name %></h3>
+      </div>
 
-    <div class="panel-body">
+      <div class="panel-body">
 
-      <% if post.image.present? %>
-        <%= link_to image_tag(post.image.url(:thumb), class: 'uploaded-pic'), post_path(post) %>
-      <% end %>
-
-      <br><%= render post.tags %>
-
-      <div class='post-buttons'>
-        
-        <%= link_to("Show more", "#" , class: 'btn btn-xs btn-info',
-          data: { toggle: 'modal', target: ".image-modal-#{post.id}"}) %>
-        
-        <% if post.user == current_user %>
-          <%= link_to "Edit #{post.name}", edit_post_path(post),
-              class: 'btn btn-xs btn-warning' %>
-          <%= link_to "Delete #{post.name}", post_path(post),
-              method: :delete, data: {confirm: 'Are you sure?' },
-              class: 'btn btn-xs btn-danger' %>
+        <% if post.image.present? %>
+          <%= link_to image_tag(post.image.url(:thumb), class: 'uploaded-pic'), post_path(post) %>
         <% end %>
 
+        <br><%= render post.tags %>
+
+        <div class='post-buttons'>
+          
+          <%= link_to("Show more", "#" , class: 'btn btn-xs btn-info',
+            data: { toggle: 'modal', target: ".image-modal-#{post.id}"}) %>
+          
+          <% if post.user == current_user %>
+            <%= link_to "Edit #{post.name}", edit_post_path(post),
+                class: 'btn btn-xs btn-warning' %>
+            <%= link_to "Delete #{post.name}", post_path(post),
+                method: :delete, data: {confirm: 'Are you sure?' },
+                class: 'btn btn-xs btn-danger' %>
+          <% end %>
+
+        </div>
+        <h5>Description: </h5><%= post.description %>
+        <h5>Posted by: </h5><%= post.user.email %>
       </div>
-      <h5>Description: </h5><%= post.description %>
-      <h5>Posted by: </h5><%= post.user.email %>
     </div>
   </div>
 </div>

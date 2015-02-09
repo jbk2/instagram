@@ -30,6 +30,7 @@ gem 'paperclip', github: 'thoughtbot/paperclip'
 gem 'aws-sdk', '< 2.0'
 gem 'devise'
 gem 'bootstrap-sass'
+gem 'masonry-rails', '~> 0.2.4'
 # gem 'figaro'
 # gem 'heroku_secrets', github: 'alexpeattie/heroku_secrets'
 

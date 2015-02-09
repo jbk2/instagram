@@ -19,3 +19,11 @@
 $('#modal').on('show', function () {
       $('.modal-body',this).css({width:'auto',height:'auto', 'max-height':'100%'});
 });
+
+// jQuery
+var $container = jQuery('#masonry-grid');
+// initialize
+$container.masonry({
+  columnWidth: 200,
+  itemSelector: '.panel'
+});
