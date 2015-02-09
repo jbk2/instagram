@@ -14,7 +14,9 @@
 <div class='container'>
   <% if @posts.any? %>
     <div class='row'>
-      <%= render @posts %>
+      <!-- <div id='masonry-container'>  -->
+        <%= render @posts %>
+      <!-- </div> -->
     </div>
   <% else %>
     <h3>No posts yet.</h1>
