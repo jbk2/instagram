@@ -6,7 +6,7 @@ Devise.setup do |config|
   # confirmation, reset password and unlock tokens in the database.
   # config.secret_key = Rails.application.secrets.devise_key
 
-  config.secret_key = ENV['DEVISE_KEY']
+  config.secret_key = Rails.application.secrets.devise_key #ENV['DEVISE_KEY']
 
   #'38b3186d563e0c6bdb769eaff0eb2cd788137f1104c2d45ed0a98a18de3952209e74b86de4b803c70d968bf90da06f16a2d1c9209b83fab17f73dbcebbf150fe'
   # Rails.application.secrets.devise_key; simply cannot get this to push to heroku with heroku_secrets gem
