@@ -16,3 +16,4 @@
 /tmp
 /config/secrets.yml
 /config/initializers/s3_constants.rb
+/config/heroku_env.rb
