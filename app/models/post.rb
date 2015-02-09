@@ -9,8 +9,8 @@ class Post < ActiveRecord::Base
     storage: :s3,
     s3_credentials: {
       bucket: 'instagram-clone-jbk',
-      access_key_id: Rails.application.secrets.s3_access_key, #ENV['S3_ACCESS_KEY']
-      secret_access_key: Rails.application.secrets.s3_secret_key #ENV['S3_SECRET_KEY']
+      access_key_id: ENV['S3_ACCESS_KEY']
+      secret_access_key: ENV['S3_SECRET_KEY']
     }
 
   validates_attachment_content_type :image, :content_type => /\Aimage\/.*\Z/

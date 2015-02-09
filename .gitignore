@@ -17,3 +17,6 @@
 /config/secrets.yml
 /config/initializers/s3_constants.rb
 /config/heroku_env.rb
+
+# Ignore application configuration
+/config/application.yml
