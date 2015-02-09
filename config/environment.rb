@@ -6,7 +6,5 @@ require File.join(File.dirname(__FILE__), 'boot')
 heroku_env = File.join(Rails.root, 'config', 'heroku_env.rb')
 load(heroku_env) if File.exists?(heroku_env)
 
-Rails::Initializer.run do |config|
-
 # Initialize the Rails application.
 Rails.application.initialize!
